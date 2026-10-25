@@ -15,7 +15,9 @@ if [[ -f "$IDENTITIES_FILE" ]]; then
     .projects[]
     | . as $project
     | [.repository.identity, .issues.identity][]
-    | select(. != null and ($identities[0].identities | has(.) | not))
+    | select(. != null)
+    | . as $id
+    | select($identities[0].identities | has($id) | not)
     | "\($project.id): \(.)"' "$PROJECTS_MANIFEST")"
   [[ -z "$unresolved" ]] || die "projects reference unknown identity profiles:
 $unresolved"
