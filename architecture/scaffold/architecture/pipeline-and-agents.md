@@ -1,10 +1,6 @@
 # Pipeline and agents
 
-```text
-workspace-scaffolder -> issue-refinement -> solution-designer
--> implementation <-> testing <-> code-reviewer
--> pr-creator -> pr-maintainer -> close
-```
+![AI Execution Environment Agent Pipeline](../documentation/assets/aee-agent-pipeline.svg)
 
 The tool-neutral definitions are under `platform/workflows/agents/`, and
 assistant skills are provided under `.agents/skills/` (for Antigravity / `agy`),

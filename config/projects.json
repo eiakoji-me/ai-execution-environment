@@ -1,4 +1,56 @@
 {
   "version": 1,
-  "projects": []
+  "projects": [
+    {
+      "id": "ai-execution-environment",
+      "workspace": "eiakoji-me-ai-execution-environment",
+      "repository": {
+        "provider": "github",
+        "owner": "eiakoji-me",
+        "name": "ai-execution-environment",
+        "url": "https://github.com/eiakoji-me/ai-execution-environment",
+        "path": "repos/ai-execution-environment",
+        "identity": "eiakoji-me"
+      },
+      "issues": {
+        "provider": "github",
+        "owner": "eiakoji-me",
+        "repository": "ai-execution-environment"
+      }
+    },
+    {
+      "id": "blog",
+      "workspace": "eiakoji-me-blog",
+      "repository": {
+        "provider": "github",
+        "owner": "eiakoji-me",
+        "name": "blog",
+        "url": "https://github.com/eiakoji-me/blog",
+        "path": "repos/blog",
+        "identity": "eiakoji-me"
+      },
+      "issues": {
+        "provider": "github",
+        "owner": "eiakoji-me",
+        "repository": "blog"
+      }
+    },
+    {
+      "id": "wiki-eiakoji-me",
+      "workspace": "eiakoji-me-wiki-eiakoji-me",
+      "repository": {
+        "provider": "github",
+        "owner": "eiakoji-me",
+        "name": "wiki-eiakoji-me",
+        "url": "https://github.com/eiakoji-me/wiki-eiakoji-me",
+        "path": "repos/wiki-eiakoji-me",
+        "identity": "eiakoji-me"
+      },
+      "issues": {
+        "provider": "github",
+        "owner": "eiakoji-me",
+        "repository": "wiki-eiakoji-me"
+      }
+    }
+  ]
 }

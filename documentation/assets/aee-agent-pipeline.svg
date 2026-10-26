@@ -1,0 +1,235 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%" style="background:#FAF8F5;">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&amp;family=Patrick+Hand&amp;display=swap');
+      text {
+        font-family: 'Virgil', 'Caveat', 'Patrick Hand', 'Chalkboard SE', 'Comic Sans MS', cursive, -apple-system, sans-serif;
+      }
+      .title { font-size: 26px; font-weight: 700; fill: #1E293B; }
+      .subtitle { font-size: 15px; font-weight: 600; fill: #64748B; }
+      .stage-title { font-size: 16px; font-weight: 700; }
+      .stage-sub { font-size: 12px; font-weight: 600; fill: #475569; }
+      .bullet { font-size: 11px; fill: #334155; }
+      .code-tag { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 11px; }
+      .handoff-tag { font-size: 11px; font-weight: 700; }
+      .loop-title { font-size: 14px; font-weight: 700; fill: #C2410C; letter-spacing: 0.5px; }
+    </style>
+
+    <!-- Markers -->
+    <marker id="arrHand" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <path d="M 1 1 L 8 3.5 L 1 6" fill="none" stroke="#334155" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrHandStart" markerWidth="9" markerHeight="7" refX="1" refY="3.5" orient="auto">
+      <path d="M 8 1 L 1 3.5 L 8 6" fill="none" stroke="#334155" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrBlue" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <path d="M 1 1 L 8 3.5 L 1 6" fill="none" stroke="#0284C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrPurple" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <path d="M 1 1 L 8 3.5 L 1 6" fill="none" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrOrange" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <path d="M 1 1 L 8 3.5 L 1 6" fill="none" stroke="#EA580C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrGreen" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <path d="M 1 1 L 8 3.5 L 1 6" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Background paper subtle dot grid -->
+  <pattern id="dotGridPipe" width="24" height="24" patternUnits="userSpaceOnUse">
+    <circle cx="12" cy="12" r="0.9" fill="#CBD5E1" opacity="0.6"/>
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#dotGridPipe)"/>
+
+  <!-- ==================== HEADER ==================== -->
+  <g id="pipe-header" transform="translate(50, 24)">
+    <text x="0" y="24" class="title">Issue-Driven Agent Pipeline</text>
+    <text x="0" y="46" class="subtitle">Deterministic Stage Progression, Bounded Iteration Loops &amp; Durable File Handoffs</text>
+
+    <!-- Header badges -->
+    <g transform="translate(730, 2)">
+      <rect x="0" y="0" width="175" height="26" rx="13" ry="13" fill="#EFF6FF" fill-opacity="1.0"/>
+    <path d="M 13 0 Q 87.5 -0.96 162 0 Q 175 0 175 13 Q 173.95 13.0 175 13 Q 175 26 162 26 Q 87.5 27.32 13 26 Q 0 26 0 13 Q -1.35 13.0 0 13 Q 0 0 13 0 Z" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 12.4 0.5 Q 88.2 -0.6 162.4 0.4 Q 175.4 0.4 175.3 13 Q 174.5 13.4 175.2 13 Q 175 26 162 25.6 Q 87.1 26.5 13 25.7 Q -0.3 26 -0.4 13 Q 0.5 12.6 -0.2 13 Z" fill="none" stroke="#3B82F6" stroke-width="1.0" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="87" y="17" text-anchor="middle" font-size="11" font-weight="700" fill="#1E40AF">Main: ticket-coordinator</text>
+    </g>
+    <g transform="translate(920, 2)">
+      <rect x="0" y="0" width="210" height="26" rx="13" ry="13" fill="#FEF3C7" fill-opacity="1.0"/>
+    <path d="M 13 0 Q 105.0 -0.96 197 0 Q 210 0 210 13 Q 208.95 13.0 210 13 Q 210 26 197 26 Q 105.0 27.32 13 26 Q 0 26 0 13 Q -1.35 13.0 0 13 Q 0 0 13 0 Z" fill="none" stroke="#D97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 12.4 0.5 Q 105.7 -0.6 197.4 0.4 Q 210.4 0.4 210.3 13 Q 209.5 13.4 210.2 13 Q 210 26 197 25.6 Q 104.6 26.5 13 25.7 Q -0.3 26 -0.4 13 Q 0.5 12.6 -0.2 13 Z" fill="none" stroke="#D97706" stroke-width="1.0" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="105" y="17" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">Durable State: Zero Chat Leaks</text>
+    </g>
+  </g>
+
+<!-- ==================== ROW 1: INTAKE, REFINEMENT, DESIGN ==================== -->
+<g transform="translate(50, 85)">
+<rect x="0" y="0" width="310" height="160" rx="10" ry="10" fill="#F0F9FF" fill-opacity="1.0"/>
+    <path d="M 10 0 Q 155.0 -0.96 300 0 Q 310 0 310 10 Q 308.95 80.0 310 150 Q 310 160 300 160 Q 155.0 161.32 10 160 Q 0 160 0 150 Q -1.35 80.0 0 10 Q 0 0 10 0 Z" fill="none" stroke="#0284C7" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 9.4 0.5 Q 155.7 -0.6 300.4 0.4 Q 310.4 0.4 310.3 10 Q 309.5 80.4 310.2 150 Q 310 160 300 159.6 Q 154.6 160.5 10 159.7 Q -0.3 160 -0.4 150 Q 0.5 79.6 -0.2 10 Z" fill="none" stroke="#0284C7" stroke-width="1.3" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="16" y="26" class="stage-title" fill="#0369A1">1. workspace-scaffolder</text>
+<text x="16" y="44" class="stage-sub">Normalized Issue Intake &amp; Slot Claim</text>
+<line x1="16" y1="52" x2="294" y2="52" stroke="#BAE6FD" stroke-width="1.2" stroke-dasharray="4,3"/>
+<text x="16" y="72" class="bullet">• Resolves project via <tspan class="code-tag">config/projects.json</tspan></text>
+<text x="16" y="90" class="bullet">• Scaffolds <tspan class="code-tag">workspaces/&lt;ws&gt;/&lt;id&gt;/</tspan> &amp; <tspan class="code-tag">meta.json</tspan></text>
+<text x="16" y="108" class="bullet">• Claims exclusive runtime slot (1–5)</text>
+<text x="16" y="126" class="bullet">• Branches worktree from <tspan class="code-tag">origin/&lt;default&gt;</tspan></text>
+<rect x="14" y="134" width="282" height="20" rx="4" ry="4" fill="#FFFFFF" fill-opacity="1.0"/>
+    <path d="M 18 134 Q 155.0 133.04 292 134 Q 296 134 296 138 Q 294.95 144.0 296 150 Q 296 154 292 154 Q 155.0 155.32 18 154 Q 14 154 14 150 Q 12.65 144.0 14 138 Q 14 134 18 134 Z" fill="none" stroke="#0284C7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 17.4 134.5 Q 155.7 133.4 292.4 134.4 Q 296.4 134.4 296.3 138 Q 295.5 144.4 296.2 150 Q 296 154 292 153.6 Q 154.6 154.5 18 153.7 Q 13.7 154 13.6 150 Q 14.5 143.6 13.8 138 Z" fill="none" stroke="#0284C7" stroke-width="1.0" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="155" y="148" text-anchor="middle" class="handoff-tag" fill="#0284C7">Handoff: meta.json · slot assigned</text>
+</g>
+<path d="M 365 165 Q 400.0 160.0 435 165" fill="none" stroke="#0284C7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrBlue)"/>
+<g transform="translate(445, 85)">
+<rect x="0" y="0" width="310" height="160" rx="10" ry="10" fill="#FAF5FF" fill-opacity="1.0"/>
+    <path d="M 10 0 Q 155.0 -0.96 300 0 Q 310 0 310 10 Q 308.95 80.0 310 150 Q 310 160 300 160 Q 155.0 161.32 10 160 Q 0 160 0 150 Q -1.35 80.0 0 10 Q 0 0 10 0 Z" fill="none" stroke="#9333EA" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 9.4 0.5 Q 155.7 -0.6 300.4 0.4 Q 310.4 0.4 310.3 10 Q 309.5 80.4 310.2 150 Q 310 160 300 159.6 Q 154.6 160.5 10 159.7 Q -0.3 160 -0.4 150 Q 0.5 79.6 -0.2 10 Z" fill="none" stroke="#9333EA" stroke-width="1.3" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="16" y="26" class="stage-title" fill="#7E22CE">2. issue-refinement</text>
+<text x="16" y="44" class="stage-sub">Scope, Exclusions &amp; Acceptance Criteria</text>
+<line x1="16" y1="52" x2="294" y2="52" stroke="#E9D5FF" stroke-width="1.2" stroke-dasharray="4,3"/>
+<text x="16" y="72" class="bullet">• Analyzes issue context &amp; requirements</text>
+<text x="16" y="90" class="bullet">• Defines non-goals, scope &amp; risks</text>
+<text x="16" y="108" class="bullet">• Sets verifiable acceptance criteria</text>
+<text x="16" y="126" class="bullet" font-weight="700" fill="#15803D">✔ Gate: definitionOfReadyMet = true</text>
+<rect x="14" y="134" width="282" height="20" rx="4" ry="4" fill="#FFFFFF" fill-opacity="1.0"/>
+    <path d="M 18 134 Q 155.0 133.04 292 134 Q 296 134 296 138 Q 294.95 144.0 296 150 Q 296 154 292 154 Q 155.0 155.32 18 154 Q 14 154 14 150 Q 12.65 144.0 14 138 Q 14 134 18 134 Z" fill="none" stroke="#9333EA" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 17.4 134.5 Q 155.7 133.4 292.4 134.4 Q 296.4 134.4 296.3 138 Q 295.5 144.4 296.2 150 Q 296 154 292 153.6 Q 154.6 154.5 18 153.7 Q 13.7 154 13.6 150 Q 14.5 143.6 13.8 138 Z" fill="none" stroke="#9333EA" stroke-width="1.0" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="155" y="148" text-anchor="middle" class="handoff-tag" fill="#7E22CE">Handoff: artifacts/refined-issue.md</text>
+</g>
+<path d="M 760 165 Q 795.0 160.0 830 165" fill="none" stroke="#9333EA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrPurple)"/>
+<g transform="translate(840, 85)">
+<rect x="0" y="0" width="310" height="160" rx="10" ry="10" fill="#FEFCE8" fill-opacity="1.0"/>
+    <path d="M 10 0 Q 155.0 -0.96 300 0 Q 310 0 310 10 Q 308.95 80.0 310 150 Q 310 160 300 160 Q 155.0 161.32 10 160 Q 0 160 0 150 Q -1.35 80.0 0 10 Q 0 0 10 0 Z" fill="none" stroke="#D97706" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 9.4 0.5 Q 155.7 -0.6 300.4 0.4 Q 310.4 0.4 310.3 10 Q 309.5 80.4 310.2 150 Q 310 160 300 159.6 Q 154.6 160.5 10 159.7 Q -0.3 160 -0.4 150 Q 0.5 79.6 -0.2 10 Z" fill="none" stroke="#D97706" stroke-width="1.3" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="16" y="26" class="stage-title" fill="#B45309">3. solution-designer</text>
+<text x="16" y="44" class="stage-sub">Technical Plan &amp; Architecture Spec</text>
+<line x1="16" y1="52" x2="294" y2="52" stroke="#FEF08A" stroke-width="1.2" stroke-dasharray="4,3"/>
+<text x="16" y="72" class="bullet">• Surveys codebase &amp; target symbols</text>
+<text x="16" y="90" class="bullet">• Designs file changes, interfaces &amp; diffs</text>
+<text x="16" y="108" class="bullet">• Defines automated test strategy</text>
+<text x="16" y="126" class="bullet" font-weight="700" fill="#15803D">✔ Gate: designApproved = true</text>
+<rect x="14" y="134" width="282" height="20" rx="4" ry="4" fill="#FFFFFF" fill-opacity="1.0"/>
+    <path d="M 18 134 Q 155.0 133.04 292 134 Q 296 134 296 138 Q 294.95 144.0 296 150 Q 296 154 292 154 Q 155.0 155.32 18 154 Q 14 154 14 150 Q 12.65 144.0 14 138 Q 14 134 18 134 Z" fill="none" stroke="#D97706" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 17.4 134.5 Q 155.7 133.4 292.4 134.4 Q 296.4 134.4 296.3 138 Q 295.5 144.4 296.2 150 Q 296 154 292 153.6 Q 154.6 154.5 18 153.7 Q 13.7 154 13.6 150 Q 14.5 143.6 13.8 138 Z" fill="none" stroke="#D97706" stroke-width="1.0" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="155" y="148" text-anchor="middle" class="handoff-tag" fill="#B45309">Handoff: artifacts/design-plan.md</text>
+</g>
+<path d="M 995 250 Q 827.5 287.5 600 275" fill="none" stroke="#D97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrOrange)"/>
+<!-- ==================== ROW 2: BOUNDED ITERATION LOOP ==================== -->
+<g id="bounded-loop">
+<rect x="50" y="285" width="1100" height="180" rx="12" ry="12" fill="#FFF7ED" fill-opacity="1.0"/>
+    <path d="M 62 285 Q 600.0 284.04 1138 285 Q 1150 285 1150 297 Q 1148.95 375.0 1150 453 Q 1150 465 1138 465 Q 600.0 466.32 62 465 Q 50 465 50 453 Q 48.65 375.0 50 297 Q 50 285 62 285 Z" fill="none" stroke="#EA580C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6,5"/>
+<text x="75" y="312" class="loop-title">🔄 BOUNDED ITERATION LOOP (max 3 cycles — halts on limit for human review)</text>
+<g transform="translate(75, 325)">
+<rect x="0" y="0" width="290" height="125" rx="8" ry="8" fill="#FFFFFF" fill-opacity="1.0"/>
+    <path d="M 8 0 Q 145.0 -0.96 282 0 Q 290 0 290 8 Q 288.95 62.5 290 117 Q 290 125 282 125 Q 145.0 126.32 8 125 Q 0 125 0 117 Q -1.35 62.5 0 8 Q 0 0 8 0 Z" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 7.4 0.5 Q 145.7 -0.6 282.4 0.4 Q 290.4 0.4 290.3 8 Q 289.5 62.9 290.2 117 Q 290 125 282 124.6 Q 144.6 125.5 8 124.7 Q -0.3 125 -0.4 117 Q 0.5 62.1 -0.2 8 Z" fill="none" stroke="#16A34A" stroke-width="1.1" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="15" y="24" class="stage-title" fill="#15803D">4. implementation</text>
+<text x="15" y="40" class="stage-sub">Code Changes in Disposable Worktree</text>
+<line x1="15" y1="48" x2="275" y2="48" stroke="#BBF7D0" stroke-width="1.2" stroke-dasharray="4,3"/>
+<text x="15" y="66" class="bullet">• Surgical, minimal diffs</text>
+<text x="15" y="82" class="bullet">• Preserves unrelated comments &amp; docs</text>
+<text x="15" y="98" class="bullet">• Runs within dedicated DevContainer slot</text>
+<rect x="10" y="103" width="270" height="18" rx="3" ry="3" fill="#F0FDF4" fill-opacity="1.0"/>
+    <path d="M 13 103 Q 145.0 102.04 277 103 Q 280 103 280 106 Q 278.95 112.0 280 118 Q 280 121 277 121 Q 145.0 122.32 13 121 Q 10 121 10 118 Q 8.65 112.0 10 106 Q 10 103 13 103 Z" fill="none" stroke="#86EFAC" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 12.4 103.5 Q 145.7 102.4 277.4 103.4 Q 280.4 103.4 280.3 106 Q 279.5 112.4 280.2 118 Q 280 121 277 120.6 Q 144.6 121.5 13 120.7 Q 9.7 121 9.6 118 Q 10.5 111.6 9.8 106 Z" fill="none" stroke="#86EFAC" stroke-width="1.0" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="145" y="116" text-anchor="middle" font-size="10" font-weight="700" fill="#15803D">Handoff: Git commits on worktree</text>
+</g>
+<path d="M 370 385 L 445 385" fill="none" stroke="#334155" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#arrHandStart)" marker-end="url(#arrHand)"/>
+<text x="407" y="375" text-anchor="middle" font-size="10" font-weight="700" fill="#64748B">remake</text>
+<g transform="translate(455, 325)">
+<rect x="0" y="0" width="290" height="125" rx="8" ry="8" fill="#FFFFFF" fill-opacity="1.0"/>
+    <path d="M 8 0 Q 145.0 -0.96 282 0 Q 290 0 290 8 Q 288.95 62.5 290 117 Q 290 125 282 125 Q 145.0 126.32 8 125 Q 0 125 0 117 Q -1.35 62.5 0 8 Q 0 0 8 0 Z" fill="none" stroke="#0284C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 7.4 0.5 Q 145.7 -0.6 282.4 0.4 Q 290.4 0.4 290.3 8 Q 289.5 62.9 290.2 117 Q 290 125 282 124.6 Q 144.6 125.5 8 124.7 Q -0.3 125 -0.4 117 Q 0.5 62.1 -0.2 8 Z" fill="none" stroke="#0284C7" stroke-width="1.1" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="15" y="24" class="stage-title" fill="#0369A1">5. testing</text>
+<text x="15" y="40" class="stage-sub">Automated Verification &amp; Harnesses</text>
+<line x1="15" y1="48" x2="275" y2="48" stroke="#BAE6FD" stroke-width="1.2" stroke-dasharray="4,3"/>
+<text x="15" y="66" class="bullet">• Executes unit &amp; contract test suites</text>
+<text x="15" y="82" class="bullet">• Runs shellcheck &amp; platform linters</text>
+<text x="15" y="98" class="bullet">• Evaluates verification pass/fail</text>
+<rect x="10" y="103" width="270" height="18" rx="3" ry="3" fill="#F0F9FF" fill-opacity="1.0"/>
+    <path d="M 13 103 Q 145.0 102.04 277 103 Q 280 103 280 106 Q 278.95 112.0 280 118 Q 280 121 277 121 Q 145.0 122.32 13 121 Q 10 121 10 118 Q 8.65 112.0 10 106 Q 10 103 13 103 Z" fill="none" stroke="#7DD3FC" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 12.4 103.5 Q 145.7 102.4 277.4 103.4 Q 280.4 103.4 280.3 106 Q 279.5 112.4 280.2 118 Q 280 121 277 120.6 Q 144.6 121.5 13 120.7 Q 9.7 121 9.6 118 Q 10.5 111.6 9.8 106 Z" fill="none" stroke="#7DD3FC" stroke-width="1.0" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="145" y="116" text-anchor="middle" font-size="10" font-weight="700" fill="#0284C7">Handoff: artifacts/test-summary.md</text>
+</g>
+<path d="M 750 385 L 825 385" fill="none" stroke="#334155" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#arrHandStart)" marker-end="url(#arrHand)"/>
+<text x="787" y="375" text-anchor="middle" font-size="10" font-weight="700" fill="#64748B">verdict</text>
+<g transform="translate(835, 325)">
+<rect x="0" y="0" width="290" height="125" rx="8" ry="8" fill="#FFFFFF" fill-opacity="1.0"/>
+    <path d="M 8 0 Q 145.0 -0.96 282 0 Q 290 0 290 8 Q 288.95 62.5 290 117 Q 290 125 282 125 Q 145.0 126.32 8 125 Q 0 125 0 117 Q -1.35 62.5 0 8 Q 0 0 8 0 Z" fill="none" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 7.4 0.5 Q 145.7 -0.6 282.4 0.4 Q 290.4 0.4 290.3 8 Q 289.5 62.9 290.2 117 Q 290 125 282 124.6 Q 144.6 125.5 8 124.7 Q -0.3 125 -0.4 117 Q 0.5 62.1 -0.2 8 Z" fill="none" stroke="#7C3AED" stroke-width="1.1" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="15" y="24" class="stage-title" fill="#6D28D9">6. code-reviewer</text>
+<text x="15" y="40" class="stage-sub">Automated Gatekeeper &amp; Audit</text>
+<line x1="15" y1="48" x2="275" y2="48" stroke="#DDD6FE" stroke-width="1.2" stroke-dasharray="4,3"/>
+<text x="15" y="66" class="bullet">• Matches code diff against AC</text>
+<text x="15" y="82" class="bullet">• Checks boundary violations &amp; leaks</text>
+<text x="15" y="98" class="bullet" font-weight="700" fill="#15803D">✔ Gate: reviewApproved = true</text>
+<rect x="10" y="103" width="270" height="18" rx="3" ry="3" fill="#FAF5FF" fill-opacity="1.0"/>
+    <path d="M 13 103 Q 145.0 102.04 277 103 Q 280 103 280 106 Q 278.95 112.0 280 118 Q 280 121 277 121 Q 145.0 122.32 13 121 Q 10 121 10 118 Q 8.65 112.0 10 106 Q 10 103 13 103 Z" fill="none" stroke="#C084FC" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 12.4 103.5 Q 145.7 102.4 277.4 103.4 Q 280.4 103.4 280.3 106 Q 279.5 112.4 280.2 118 Q 280 121 277 120.6 Q 144.6 121.5 13 120.7 Q 9.7 121 9.6 118 Q 10.5 111.6 9.8 106 Z" fill="none" stroke="#C084FC" stroke-width="1.0" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="145" y="116" text-anchor="middle" font-size="10" font-weight="700" fill="#6D28D9">Handoff: artifacts/review-notes.md</text>
+</g>
+</g>
+<g transform="rotate(1.5 1060.0 295.0)">
+    <rect x="970" y="270" width="180" height="50" rx="6" ry="6" fill="#FEE2E2" fill-opacity="1.0"/>
+    <path d="M 976 270 Q 1060.0 269.04 1144 270 Q 1150 270 1150 276 Q 1148.95 295.0 1150 314 Q 1150 320 1144 320 Q 1060.0 321.32 976 320 Q 970 320 970 314 Q 968.65 295.0 970 276 Q 970 270 976 270 Z" fill="none" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 975.4 270.5 Q 1060.7 269.4 1144.4 270.4 Q 1150.4 270.4 1150.3 276 Q 1149.5 295.4 1150.2 314 Q 1150 320 1144 319.6 Q 1059.6 320.5 976 319.7 Q 969.7 320 969.6 314 Q 970.5 294.6 969.8 276 Z" fill="none" stroke="#EF4444" stroke-width="1.0" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="980" y="290" font-size="12" font-weight="600" fill="#991B1B">⚠️ LOOP GUARD: counter &lt;= 3</text>
+      <text x="980" y="306" font-size="12" font-weight="600" fill="#991B1B">Human escalation on failure</text>
+  </g>
+<path d="M 980 465 Q 640.0 512.5 220 500" fill="none" stroke="#EA580C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrOrange)"/>
+<!-- ==================== ROW 3: PR CREATOR, MAINTAINER, CLOSE ==================== -->
+<g transform="translate(50, 495)">
+<rect x="0" y="0" width="310" height="130" rx="10" ry="10" fill="#F0F9FF" fill-opacity="1.0"/>
+    <path d="M 10 0 Q 155.0 -0.96 300 0 Q 310 0 310 10 Q 308.95 65.0 310 120 Q 310 130 300 130 Q 155.0 131.32 10 130 Q 0 130 0 120 Q -1.35 65.0 0 10 Q 0 0 10 0 Z" fill="none" stroke="#0284C7" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 9.4 0.5 Q 155.7 -0.6 300.4 0.4 Q 310.4 0.4 310.3 10 Q 309.5 65.4 310.2 120 Q 310 130 300 129.6 Q 154.6 130.5 10 129.7 Q -0.3 130 -0.4 120 Q 0.5 64.6 -0.2 10 Z" fill="none" stroke="#0284C7" stroke-width="1.3" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="16" y="24" class="stage-title" fill="#0369A1">7. pr-creator</text>
+<text x="16" y="40" class="stage-sub">Publish Pull Request under Identity</text>
+<line x1="16" y1="48" x2="294" y2="48" stroke="#BAE6FD" stroke-width="1.2" stroke-dasharray="4,3"/>
+<text x="16" y="66" class="bullet">• Pushes branch via <tspan class="code-tag">platform/identity/run.sh</tspan></text>
+<text x="16" y="82" class="bullet">• Formats structured PR title &amp; description</text>
+<text x="16" y="98" class="bullet">• Opens PR on GitHub / GitLab</text>
+<rect x="14" y="105" width="282" height="18" rx="3" ry="3" fill="#FFFFFF" fill-opacity="1.0"/>
+    <path d="M 17 105 Q 155.0 104.04 293 105 Q 296 105 296 108 Q 294.95 114.0 296 120 Q 296 123 293 123 Q 155.0 124.32 17 123 Q 14 123 14 120 Q 12.65 114.0 14 108 Q 14 105 17 105 Z" fill="none" stroke="#0284C7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 16.4 105.5 Q 155.7 104.4 293.4 105.4 Q 296.4 105.4 296.3 108 Q 295.5 114.4 296.2 120 Q 296 123 293 122.6 Q 154.6 123.5 17 122.7 Q 13.7 123 13.6 120 Q 14.5 113.6 13.8 108 Z" fill="none" stroke="#0284C7" stroke-width="1.0" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="155" y="118" text-anchor="middle" class="handoff-tag" fill="#0284C7">Handoff: PR opened &amp; CI triggered</text>
+</g>
+<path d="M 365 560 Q 400.0 555.0 435 560" fill="none" stroke="#0284C7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrBlue)"/>
+<g transform="translate(445, 495)">
+<rect x="0" y="0" width="310" height="130" rx="10" ry="10" fill="#FEFCE8" fill-opacity="1.0"/>
+    <path d="M 10 0 Q 155.0 -0.96 300 0 Q 310 0 310 10 Q 308.95 65.0 310 120 Q 310 130 300 130 Q 155.0 131.32 10 130 Q 0 130 0 120 Q -1.35 65.0 0 10 Q 0 0 10 0 Z" fill="none" stroke="#CA8A04" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 9.4 0.5 Q 155.7 -0.6 300.4 0.4 Q 310.4 0.4 310.3 10 Q 309.5 65.4 310.2 120 Q 310 130 300 129.6 Q 154.6 130.5 10 129.7 Q -0.3 130 -0.4 120 Q 0.5 64.6 -0.2 10 Z" fill="none" stroke="#CA8A04" stroke-width="1.3" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="16" y="24" class="stage-title" fill="#854D0E">8. pr-maintainer</text>
+<text x="16" y="40" class="stage-sub">CI Monitoring &amp; Feedback Response</text>
+<line x1="16" y1="48" x2="294" y2="48" stroke="#FEF08A" stroke-width="1.2" stroke-dasharray="4,3"/>
+<text x="16" y="66" class="bullet">• Monitors remote CI actions / pipelines</text>
+<text x="16" y="82" class="bullet">• Addresses comments from reviewers</text>
+<text x="16" y="98" class="bullet">• Re-runs verification &amp; updates branch</text>
+<rect x="14" y="105" width="282" height="18" rx="3" ry="3" fill="#FFFFFF" fill-opacity="1.0"/>
+    <path d="M 17 105 Q 155.0 104.04 293 105 Q 296 105 296 108 Q 294.95 114.0 296 120 Q 296 123 293 123 Q 155.0 124.32 17 123 Q 14 123 14 120 Q 12.65 114.0 14 108 Q 14 105 17 105 Z" fill="none" stroke="#CA8A04" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 16.4 105.5 Q 155.7 104.4 293.4 105.4 Q 296.4 105.4 296.3 108 Q 295.5 114.4 296.2 120 Q 296 123 293 122.6 Q 154.6 123.5 17 122.7 Q 13.7 123 13.6 120 Q 14.5 113.6 13.8 108 Z" fill="none" stroke="#CA8A04" stroke-width="1.0" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="155" y="118" text-anchor="middle" class="handoff-tag" fill="#854D0E">Handoff: PR approved &amp; CI green</text>
+</g>
+<path d="M 760 560 Q 795.0 555.0 830 560" fill="none" stroke="#CA8A04" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrHand)"/>
+<g transform="translate(840, 495)">
+<rect x="0" y="0" width="310" height="130" rx="10" ry="10" fill="#F1F5F9" fill-opacity="1.0"/>
+    <path d="M 10 0 Q 155.0 -0.96 300 0 Q 310 0 310 10 Q 308.95 65.0 310 120 Q 310 130 300 130 Q 155.0 131.32 10 130 Q 0 130 0 120 Q -1.35 65.0 0 10 Q 0 0 10 0 Z" fill="none" stroke="#475569" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 9.4 0.5 Q 155.7 -0.6 300.4 0.4 Q 310.4 0.4 310.3 10 Q 309.5 65.4 310.2 120 Q 310 130 300 129.6 Q 154.6 130.5 10 129.7 Q -0.3 130 -0.4 120 Q 0.5 64.6 -0.2 10 Z" fill="none" stroke="#475569" stroke-width="1.3" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="16" y="24" class="stage-title" fill="#334155">9. close</text>
+<text x="16" y="40" class="stage-sub">Resource Teardown &amp; Slot Release</text>
+<line x1="16" y1="48" x2="294" y2="48" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="4,3"/>
+<text x="16" y="66" class="bullet">• Confirms git worktree clean status</text>
+<text x="16" y="82" class="bullet">• Destroys DevContainer &amp; deletes worktree</text>
+<text x="16" y="98" class="bullet">• Releases pool slot back to capacity pool</text>
+<rect x="14" y="105" width="282" height="18" rx="3" ry="3" fill="#FFFFFF" fill-opacity="1.0"/>
+    <path d="M 17 105 Q 155.0 104.04 293 105 Q 296 105 296 108 Q 294.95 114.0 296 120 Q 296 123 293 123 Q 155.0 124.32 17 123 Q 14 123 14 120 Q 12.65 114.0 14 108 Q 14 105 17 105 Z" fill="none" stroke="#475569" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 16.4 105.5 Q 155.7 104.4 293.4 105.4 Q 296.4 105.4 296.3 108 Q 295.5 114.4 296.2 120 Q 296 123 293 122.6 Q 154.6 123.5 17 122.7 Q 13.7 123 13.6 120 Q 14.5 113.6 13.8 108 Z" fill="none" stroke="#475569" stroke-width="1.0" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="155" y="118" text-anchor="middle" class="handoff-tag" fill="#334155">Terminal: meta.json disposition recorded</text>
+</g>
+<!-- ==================== PERSISTENCE BANNER ==================== -->
+<g transform="translate(50, 638)">
+<rect x="0" y="0" width="1100" height="30" rx="6" ry="6" fill="#FEF3C7" fill-opacity="1.0"/>
+    <path d="M 6 0 Q 550.0 -0.96 1094 0 Q 1100 0 1100 6 Q 1098.95 15.0 1100 24 Q 1100 30 1094 30 Q 550.0 31.32 6 30 Q 0 30 0 24 Q -1.35 15.0 0 6 Q 0 0 6 0 Z" fill="none" stroke="#D97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 5.4 0.5 Q 550.7 -0.6 1094.4 0.4 Q 1100.4 0.4 1100.3 6 Q 1099.5 15.4 1100.2 24 Q 1100 30 1094 29.6 Q 549.6 30.5 6 29.7 Q -0.3 30 -0.4 24 Q 0.5 14.6 -0.2 6 Z" fill="none" stroke="#D97706" stroke-width="1.0" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="550" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">DURABLE HANDOFF CONTRACT: Every stage reads/writes meta.json, session-state.md, history.log &amp; artifacts/ — never conversation memory.</text>
+</g>
+</svg>

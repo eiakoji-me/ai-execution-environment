@@ -42,6 +42,18 @@ application monorepo.
   behavior.
 - Run `./platform/validate.sh` after platform changes.
 
+## Documentation and diagrams
+
+- Architectural overviews and workflow pipelines must be visualized as rich
+  Excalidraw-style wireframe SVGs under `documentation/assets/` rather than raw
+  ASCII diagrams or unstyled boxes.
+- Wireframe SVGs must adhere to the hand-drawn aesthetic: sketchy borders,
+  readable handwriting fonts with sans-serif fallbacks (`Virgil`, `Caveat`,
+  `Patrick Hand`, sans-serif), soft pastel fills, explicit flow arrows, and
+  bounded subsystem containers.
+- Existing high-density technical schematics (such as `aee-architecture.svg`)
+  are preserved alongside wireframe overviews as deep-dive blueprints.
+
 ## Setup protocol
 
 When asked to set up or onboard this workspace:

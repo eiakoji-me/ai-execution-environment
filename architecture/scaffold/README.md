@@ -10,7 +10,9 @@ An issue-driven workspace control plane and multi-agent execution platform acros
 
 The system strictly decouples the **Control Plane** (agent orchestration, issue intake, and CLI tooling), the **Data Plane** (containerized runtimes and toolchains), the **Storage Boundaries** (repositories, persistent workspaces, and disposable worktrees), and the **Context & State Model** (durable stage checkpoints and an LSM-tree context memory engine).
 
-![AI Execution Environment Architecture](documentation/assets/aee-architecture.svg)
+![AI Execution Environment Architecture Wireframe](documentation/assets/aee-architecture-excalidraw.svg)
+
+> *Looking for the high-density technical schematic? See [`documentation/assets/aee-architecture.svg`](documentation/assets/aee-architecture.svg).*
 
 ### System Components & Interactions
 
@@ -25,13 +27,13 @@ The system strictly decouples the **Control Plane** (agent orchestration, issue 
 
 ## Core Boundaries & Persistence Model
 
-The workspace enforces three strict separation boundaries to ensure that human workflows, agent modifications, and credentials never cross-contaminate:
+The workspace enforces three strict separation boundaries to ensure that human workflows, agent modifications, and credentials never cross-contaminate. The runtime pool concurrently isolates tasks across independent repositories (`repo-1`, `repo-2`, `repo-3`) as well as multiple distinct tasks within the same repository (`repo-1 / FEAT-42` alongside `repo-1 / CHORE-19`):
 
 ```text
-repos/blog/                                     canonical clone (pristine, fetch-only)
-workspaces/eiakoji-me-blog/TASK-16/             persistent work-item memory (survives disposal)
-worktrees/eiakoji-me-blog-task-16/              disposable checkout (exclusive container slot)
-.local/state/identities/eiakoji-me/             isolated credential profile (host-local)
+repos/repo-1/                                   canonical clone (pristine, fetch-only)
+workspaces/team-repo-1/FEAT-42/                 persistent work-item memory (survives disposal)
+worktrees/team-repo-1-feat-42/                  disposable checkout (exclusive container slot)
+.local/state/identities/identity-1/             isolated credential profile (host-local)
 ```
 
 1. **Canonical Checkouts (`repos/`)**:
@@ -55,16 +57,7 @@ worktrees/eiakoji-me-blog-task-16/              disposable checkout (exclusive c
 
 A ticket progresses through discrete, bounded workflow stages. Each stage has a single responsibility and durable file handoffs, preventing dependence on volatile conversation memory:
 
-```text
-workspace-scaffolder ──► issue-refinement ──► solution-designer
-                                                     │
-                             ┌───────────────────────┘
-                             ▼
-                      implementation ◄──► testing ◄──► code-reviewer
-                             │
-                             ▼
-                         pr-creator ──► pr-maintainer ──► close
-```
+![AI Execution Environment Agent Pipeline](documentation/assets/aee-agent-pipeline.svg)
 
 - **`workspace-scaffolder`**: Resolves issue source, initializes `meta.json`, scaffolds durable workspace directory, claims pool slot, and starts runtime worktree.
 - **`issue-refinement`**: Analyzes ticket requirements, sets acceptance criteria, and generates `artifacts/refined-issue.md`.
