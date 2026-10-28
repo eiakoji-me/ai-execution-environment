@@ -40,7 +40,19 @@ issues_identity="$(project_identity "$project" issues)"
 ticket_json="$(identity_exec "$issues_identity" "$adapter" "$issue_ref" --repo "$owner/$repository")"
 number="$(jq -r '.number' <<<"$ticket_json")"
 item_type="${type_override:-$(jq -r '.type // empty' <<<"$ticket_json")}"
+item_type="${item_type:-TASK}"
 case "$item_type" in FEAT|FIX|TASK) ;; *) die "unable to determine type; pass --type FEAT, FIX, or TASK" ;; esac
+
+if [[ -z "$type_override" && -d "$ROOT/workspaces/$workspace" ]]; then
+  existing_dir="$(find "$ROOT/workspaces/$workspace" -maxdepth 1 -type d -name "[A-Z]*-${number}" 2>/dev/null | head -n 1 || true)"
+  if [[ -n "$existing_dir" ]]; then
+    existing_name="$(basename "$existing_dir")"
+    existing_type="${existing_name%%-*}"
+    case "$existing_type" in
+      FEAT|FIX|TASK) item_type="$existing_type" ;;
+    esac
+  fi
+fi
 
 work_item="${item_type}-${number}"
 title="$(jq -r '.title' <<<"$ticket_json")"

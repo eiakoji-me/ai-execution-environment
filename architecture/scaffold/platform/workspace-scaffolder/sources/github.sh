@@ -60,6 +60,17 @@ if [[ -z "$item_type" ]]; then
   fi
 fi
 
+if [[ -z "$item_type" ]]; then
+  title_lower="$(jq -r '.title // "" | ascii_downcase' <<<"$raw")"
+  if [[ "$title_lower" =~ (fix|bug|patch|resolv|correct|crash|broken) ]]; then
+    item_type=FIX
+  elif [[ "$title_lower" =~ (feat|add|support|new|implement|replac|redesign|enhanc) ]]; then
+    item_type=FEAT
+  else
+    item_type=TASK
+  fi
+fi
+
 jq -n \
   --arg source github \
   --arg key "$number" \

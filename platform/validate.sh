@@ -51,6 +51,8 @@ required_paths=(
   platform/runtime/scripts/worktrees.sh
   platform/state/templates/meta.json
   platform/workflows/agents/ticket-coordinator.md
+  platform/workspace-scaffolder/ingest.sh
+  platform/workspace-scaffolder/resolve.sh
   platform/workspace-scaffolder/sources/github.sh
 )
 for required_path in "${required_paths[@]}"; do

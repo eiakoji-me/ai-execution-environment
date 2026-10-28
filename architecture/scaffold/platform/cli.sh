@@ -49,6 +49,7 @@ Commands:
     snapshot    Manage context snapshots (create, list, restore, switch)
 
   exec          Execute a single-turn prompt against a work item or context file
+  ingest        Resolve an issue URL/ref, scaffold, and execute headless refinement
   setup         Run environment setup and configuration (plan, apply)
   doctor        Run diagnostic health checks on host tools and configuration
   validate      Run platform portability, shellcheck, and manifest validations
@@ -76,6 +77,7 @@ cmd_work_items_usage() {
 usage:
   aee work-items list
   aee work-items scaffold <source> <key> [--project <project-id>] [--no-start-runtime]
+  aee work-items resolve <issue-url-or-ref> [--project <project-id>] [--json]
   aee work-items status <workspace-id> <work-item-id>
 EOF
 }
@@ -134,6 +136,7 @@ _aee() {
     'identity:Manage isolated identity profiles'
     'context:Manage session context, memory partitions, and snapshots'
     'exec:Execute a single-turn prompt against a work item or context file'
+    'ingest:Resolve an issue URL/ref, scaffold, and execute headless refinement'
     'setup:Run environment setup and configuration'
     'doctor:Run diagnostic health checks on host tools'
     'validate:Run platform portability and manifest validations'
@@ -205,6 +208,7 @@ _aee() {
           work_items_subcmds=(
             'list:List work items across workspaces'
             'scaffold:Scaffold a new work item from an issue source'
+            'resolve:Resolve an issue URL or reference into project/issue metadata'
             'status:Show detailed status of a work item'
           )
           _describe -t work_items_subcmds 'work-items subcommand' work_items_subcmds
@@ -272,7 +276,7 @@ _aee_completions() {
     cword="$COMP_CWORD"
   fi
 
-  local commands="runtime slots worktrees repos work-items identity context exec setup doctor validate version completion help"
+  local commands="runtime slots worktrees repos work-items identity context exec ingest setup doctor validate version completion help"
 
   if [[ "$cword" -eq 1 ]]; then
     # shellcheck disable=SC2207
@@ -299,7 +303,7 @@ _aee_completions() {
       ;;
     work-items|work-item|workitem|tasks|task)
       # shellcheck disable=SC2207
-      COMPREPLY=( $(compgen -W "list scaffold status" -- "$cur") )
+      COMPREPLY=( $(compgen -W "list scaffold resolve status" -- "$cur") )
       ;;
     identity)
       # shellcheck disable=SC2207
@@ -385,6 +389,10 @@ case "$action" in
         [[ "$#" -ge 2 ]] || { cmd_work_items_usage; exit 2; }
         exec "$ROOT/platform/workspace-scaffolder/scaffold.sh" "$@"
         ;;
+      resolve)
+        [[ "$#" -ge 1 ]] || { cmd_work_items_usage; exit 2; }
+        exec "$ROOT/platform/workspace-scaffolder/resolve.sh" "$@"
+        ;;
       status)
         [[ "$#" -eq 2 ]] || { cmd_work_items_usage; exit 2; }
         show_work_item_status "$1" "$2"
@@ -452,6 +460,9 @@ case "$action" in
     ;;
   exec)
     exec "$ROOT/platform/agents/exec.sh" "$@"
+    ;;
+  ingest)
+    exec "$ROOT/platform/workspace-scaffolder/ingest.sh" "$@"
     ;;
   setup)
     exec "$ROOT/platform/install/setup.sh" "$@"
