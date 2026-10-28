@@ -82,3 +82,37 @@
     - orchestration-engine
     - claude-code-interface
     - host-credential-scoping
+
+- id: shareable-sdd-platform
+  status: open
+  summary: Package and publish aee as an open-source, spec-driven development platform with containerized LLM processing, multi-VCS trust isolation, and LSM-tree memory.
+  context: >-
+    Transforms the workspace control plane into a standalone, shareable developer tool for spec-driven
+    development (SDD). Features an isolated LLM processor container (Input -> LLM Container -> Output),
+    workflow classification layer (spec-to-pr, runbook, investigation, docs), and multi-identity credential isolation.
+  decisions:
+    - Finalize tool naming and CLI binary branding (resolve namespace availability across package managers).
+    - Determine distribution packaging (Homebrew tap, single binary, or container bundle).
+    - Maintain strict separation between cognitive LLM processor and project runtime containers.
+  steps:
+    - Formalize the workflow classification layer (spec-to-pr, runbook, investigation, documentation).
+    - Containerize the LLM processor (Dockerfile with Claude, Agy, Gemini, Python SDKs and mounted session store).
+    - Create quickstart onboarding documentation, architecture wireframe SVGs, and automated installation script.
+
+- id: stack-specific-runners
+  status: open
+  summary: Evolve runtime container pool slots into specialized, stack-specific Runners (Java, Node, Go, Python, Hugo).
+  context: >-
+    Currently, platform/runtime uses a single generic devcontainer definition for all worktree runtime slots.
+    To support diverse project ecosystems without container bloat, runtime slots will evolve into specialized
+    Runners declared per project in config/projects.json (e.g. runner: java, runner: node, runner: hugo).
+  decisions:
+    - Define runner artifact registry and caching strategy for slot reuse.
+    - Standardize interface for the LLM component to execute builds and tests inside the active runner via docker exec.
+  steps:
+    - Add runner attribute to config/projects.json schema.
+    - Create modular runner Dockerfiles or devcontainer feature layers (runner-base, runner-node, runner-java, runner-hugo, runner-python).
+    - Update platform/runtime/scripts/start.sh to resolve and boot the project's designated runner image in the allocated slot.
+    - Add runner inspection subcommands to aee runtime slots.
+
+

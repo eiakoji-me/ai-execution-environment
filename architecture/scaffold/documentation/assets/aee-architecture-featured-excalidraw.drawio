@@ -1,0 +1,119 @@
+<mxfile host="Electron" agent="Antigravity">
+  <diagram id="aee-featured-architecture" name="AEE Architecture Overview">
+    <mxGraphModel dx="1779" dy="1070" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="#FAF8F5" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="intake-group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#E0F2FE;strokeColor=#0284C7;strokeWidth=2;arcSize=8;" value="" vertex="1">
+          <mxGeometry height="340" width="280" x="60" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="intake-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#0369A1;fontFamily=Comic Sans MS;spacing=0;" value="ISSUE INTAKE" vertex="1">
+          <mxGeometry height="26" width="280" x="60" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="intake-box-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#ffffff;strokeColor=#0284C7;strokeWidth=1.5;fontColor=#0f172a;fontSize=14;fontFamily=Comic Sans MS;align=center;verticalAlign=middle;arcSize=10;" value="&lt;b&gt;GitHub / GitLab Issue&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#475569&quot; style=&quot;font-size: 13px;&quot;&gt;External ticket &amp;amp; scope&lt;/font&gt;" vertex="1">
+          <mxGeometry height="85" width="230" x="85" y="145" as="geometry" />
+        </mxCell>
+        <mxCell id="intake-box-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#ffffff;strokeColor=#0284C7;strokeWidth=1.5;fontColor=#0f172a;fontSize=14;fontFamily=Comic Sans MS;align=center;verticalAlign=middle;arcSize=10;" value="&lt;b&gt;Autonomous Agents&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#475569&quot; style=&quot;font-size: 13px;&quot;&gt;Antigravity · Claude Code&lt;br&gt;Tool-neutral skills&lt;/font&gt;" vertex="1">
+          <mxGeometry height="95" width="230" x="85" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="control-group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=2;arcSize=8;" value="" vertex="1">
+          <mxGeometry height="340" width="300" x="400" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="control-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#B45309;fontFamily=Comic Sans MS;spacing=0;" value="CONTROL PLANE" vertex="1">
+          <mxGeometry height="26" width="300" x="400" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="control-box-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#ffffff;strokeColor=#D97706;strokeWidth=1.5;fontColor=#0f172a;fontSize=14;fontFamily=Comic Sans MS;align=center;verticalAlign=middle;arcSize=10;" value="&lt;b&gt;Platform Orchestrator&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#475569&quot; style=&quot;font-size: 13px;&quot;&gt;bin/aee · Task Scaffolder&lt;br&gt;Deterministic stage gates&lt;/font&gt;" vertex="1">
+          <mxGeometry height="85" width="250" x="425" y="145" as="geometry" />
+        </mxCell>
+        <mxCell id="control-box-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#ffffff;strokeColor=#D97706;strokeWidth=1.5;fontColor=#0f172a;fontSize=14;fontFamily=Comic Sans MS;align=center;verticalAlign=middle;arcSize=10;" value="&lt;b&gt;Identity Isolation&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#475569&quot; style=&quot;font-size: 13px;&quot;&gt;platform/identity/run.sh&lt;br&gt;Host credentials protected&lt;/font&gt;" vertex="1">
+          <mxGeometry height="95" width="250" x="425" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="runtime-group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#DCFCE7;strokeColor=#166534;strokeWidth=2;arcSize=8;" value="" vertex="1">
+          <mxGeometry height="400" width="410" x="760" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="runtime-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#166534;fontFamily=Comic Sans MS;spacing=0;" value="ISOLATED RUNTIME POOL (SLOTS 1 .. 5)" vertex="1">
+          <mxGeometry height="26" width="410" x="760" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="runtime-box-sandbox" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#ffffff;strokeColor=#166534;strokeWidth=1.5;fontColor=#0f172a;fontSize=14;fontFamily=Comic Sans MS;align=left;verticalAlign=middle;spacing=12;arcSize=10;" value="&lt;b&gt;Docker Execution Sandbox&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#334155&quot; style=&quot;font-size: 13px;&quot;&gt;• Dedicated slot assignment&lt;br&gt;• Disposable worktree checkout&lt;br&gt;• Scoped identity bind-mount&lt;/font&gt;" vertex="1">
+          <mxGeometry height="115" width="350" x="790" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="runtime-box-gate" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#ffffff;strokeColor=#166534;strokeWidth=1.5;fontColor=#0f172a;fontSize=14;fontFamily=Comic Sans MS;align=center;verticalAlign=middle;arcSize=10;" value="&lt;b&gt;Verification Gate&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#334155&quot; style=&quot;font-size: 13px;&quot;&gt;npm run verify · Styles · Types · Build · Tests&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="350" x="790" y="325" as="geometry" />
+        </mxCell>
+        <mxCell id="runtime-loop-edge-down" edge="1" parent="1" source="runtime-box-sandbox" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;strokeColor=#166534;strokeWidth=2;endArrow=block;endFill=1;" target="runtime-box-gate" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="930" y="280" />
+              <mxPoint x="930" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="runtime-loop-edge-up" edge="1" parent="1" source="runtime-box-gate" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;strokeColor=#166534;strokeWidth=2;endArrow=block;endFill=1;fontSize=12;fontStyle=1;fontColor=#166534;fontFamily=Comic Sans MS;" target="runtime-box-sandbox" value="Bounded Loop (≤ 3x)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1070" y="280" />
+              <mxPoint x="1070" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="delivery-group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#F3E8FF;strokeColor=#7C3AED;strokeWidth=2;arcSize=8;" value="" vertex="1">
+          <mxGeometry height="340" width="300" x="1230" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="delivery-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#6B21A8;fontFamily=Comic Sans MS;spacing=0;" value="VERIFIED DELIVERY" vertex="1">
+          <mxGeometry height="26" width="300" x="1230" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="delivery-box-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#ffffff;strokeColor=#7C3AED;strokeWidth=1.5;fontColor=#0f172a;fontSize=14;fontFamily=Comic Sans MS;align=center;verticalAlign=middle;arcSize=10;" value="&lt;b&gt;Pull Request&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#475569&quot; style=&quot;font-size: 13px;&quot;&gt;Passing CI &amp;amp; Automated Checks&lt;br&gt;Auditable stage handoff&lt;/font&gt;" vertex="1">
+          <mxGeometry height="85" width="250" x="1255" y="145" as="geometry" />
+        </mxCell>
+        <mxCell id="delivery-box-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#ffffff;strokeColor=#7C3AED;strokeWidth=1.5;fontColor=#0f172a;fontSize=14;fontFamily=Comic Sans MS;align=center;verticalAlign=middle;arcSize=10;" value="&lt;b&gt;Branch Merged &amp;amp; Released&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#475569&quot; style=&quot;font-size: 13px;&quot;&gt;• Ephemeral worktree destroyed&lt;br&gt;• Container pool slot released&lt;/font&gt;" vertex="1">
+          <mxGeometry height="95" width="250" x="1255" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="storage-group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#F8FAFC;strokeColor=#475569;strokeWidth=2;arcSize=8;" value="" vertex="1">
+          <mxGeometry height="270" width="1240" x="180" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="storage-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#334155;fontFamily=Comic Sans MS;spacing=0;" value="STORAGE BOUNDARIES — THREE COMPLEMENTARY LIFETIMES" vertex="1">
+          <mxGeometry height="26" width="1240" x="180" y="558" as="geometry" />
+        </mxCell>
+        <mxCell id="storage-box-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#ffffff;strokeColor=#475569;strokeWidth=1.5;fontColor=#0f172a;fontSize=14;fontFamily=Comic Sans MS;align=left;verticalAlign=top;spacing=14;arcSize=10;" value="&lt;b&gt;CANONICAL REPOSITORY&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#2563eb&quot; style=&quot;font-size: 13px;&quot;&gt;&lt;b&gt;repos/&amp;lt;project&amp;gt;/&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#475569&quot; style=&quot;font-size: 13px;&quot;&gt;• Human source of truth&lt;br&gt;• Read-only to agent sandbox&lt;br&gt;• Survives all agent churn&lt;/font&gt;" vertex="1">
+          <mxGeometry height="170" width="350" x="215" y="605" as="geometry" />
+        </mxCell>
+        <mxCell id="storage-box-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#ffffff;strokeColor=#475569;strokeWidth=1.5;fontColor=#0f172a;fontSize=14;fontFamily=Comic Sans MS;align=left;verticalAlign=top;spacing=14;arcSize=10;" value="&lt;b&gt;DURABLE WORK-ITEM&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#2563eb&quot; style=&quot;font-size: 13px;&quot;&gt;&lt;b&gt;workspaces/&amp;lt;proj&amp;gt;/&amp;lt;ticket&amp;gt;/&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#475569&quot; style=&quot;font-size: 13px;&quot;&gt;• Durable state recorder&lt;br&gt;• meta.json · gates &amp;amp; loop counts&lt;br&gt;• session-state.md &amp;amp; history.log&lt;/font&gt;" vertex="1">
+          <mxGeometry height="170" width="350" x="625" y="605" as="geometry" />
+        </mxCell>
+        <mxCell id="storage-box-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#ffffff;strokeColor=#475569;strokeWidth=1.5;fontColor=#0f172a;fontSize=14;fontFamily=Comic Sans MS;align=left;verticalAlign=top;spacing=14;arcSize=10;" value="&lt;b&gt;DISPOSABLE WORKTREE&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#2563eb&quot; style=&quot;font-size: 13px;&quot;&gt;&lt;b&gt;worktrees/&amp;lt;proj&amp;gt;-&amp;lt;ticket&amp;gt;/&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#475569&quot; style=&quot;font-size: 13px;&quot;&gt;• Ephemeral git branch worktree&lt;br&gt;• Writable sandbox checkout&lt;br&gt;• Destroyed cleanly on PR merge&lt;/font&gt;" vertex="1">
+          <mxGeometry height="170" width="350" x="1035" y="605" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-intake-control" edge="1" parent="1" source="intake-group" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;strokeColor=#0284C7;strokeWidth=2.5;endArrow=block;endFill=1;" target="control-group">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-control-runtime" edge="1" parent="1" source="control-group" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;strokeColor=#D97706;strokeWidth=2.5;endArrow=block;endFill=1;entryX=0.01;entryY=0.48;entryDx=0;entryDy=0;entryPerimeter=0;" target="runtime-group">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="730" y="252" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-runtime-delivery" edge="1" parent="1" source="runtime-group" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;strokeColor=#166534;strokeWidth=2.5;endArrow=block;endFill=1;entryX=-0.004;entryY=0.527;entryDx=0;entryDy=0;entryPerimeter=0;" target="delivery-group">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-control-storage" edge="1" parent="1" source="control-group" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;strokeColor=#475569;strokeWidth=2;dashed=1;endArrow=block;endFill=1;" target="storage-group">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="490" />
+              <mxPoint x="550" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-storage-runtime" edge="1" parent="1" source="storage-box-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;strokeColor=#475569;strokeWidth=2;dashed=1;endArrow=block;endFill=1;fontSize=12;fontFamily=Comic Sans MS;fontColor=#475569;" target="runtime-group" value="Mounts disposable worktree &amp;amp; scoped identity">
+          <mxGeometry relative="1" x="-0.4426" y="-20" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1210" y="500" />
+              <mxPoint x="1050" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

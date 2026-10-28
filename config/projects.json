@@ -36,6 +36,40 @@
       }
     },
     {
+      "id": "data-structures-algorithms",
+      "workspace": "eiakoji-me-data-structures-algorithms",
+      "repository": {
+        "provider": "github",
+        "owner": "eiakoji-me",
+        "name": "data-structures-algorithms",
+        "url": "https://github.com/eiakoji-me/data-structures-algorithms",
+        "path": "repos/data-structures-algorithms",
+        "identity": "eiakoji-me"
+      },
+      "issues": {
+        "provider": "github",
+        "owner": "eiakoji-me",
+        "repository": "data-structures-algorithms"
+      }
+    },
+    {
+      "id": "staff-eng-transition-masterclass",
+      "workspace": "eiakoji-me-staff-eng-transition-masterclass",
+      "repository": {
+        "provider": "github",
+        "owner": "eiakoji-me",
+        "name": "staff-eng-transition-masterclass",
+        "url": "https://github.com/eiakoji-me/staff-eng-transition-masterclass",
+        "path": "repos/staff-eng-transition-masterclass",
+        "identity": "eiakoji-me"
+      },
+      "issues": {
+        "provider": "github",
+        "owner": "eiakoji-me",
+        "repository": "staff-eng-transition-masterclass"
+      }
+    },
+    {
       "id": "wiki-eiakoji-me",
       "workspace": "eiakoji-me-wiki-eiakoji-me",
       "repository": {
@@ -50,6 +84,23 @@
         "provider": "github",
         "owner": "eiakoji-me",
         "repository": "wiki-eiakoji-me"
+      }
+    },
+    {
+      "id": "xicoexpress",
+      "workspace": "eiakoji-me-xicoexpress",
+      "repository": {
+        "provider": "github",
+        "owner": "eiakoji-me",
+        "name": "xicoexpress",
+        "url": "https://github.com/eiakoji-me/xicoexpress",
+        "path": "repos/xicoexpress",
+        "identity": "eiakoji-me"
+      },
+      "issues": {
+        "provider": "github",
+        "owner": "eiakoji-me",
+        "repository": "xicoexpress"
       }
     }
   ]

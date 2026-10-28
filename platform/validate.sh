@@ -31,6 +31,7 @@ required_paths=(
   .codex/skills/work-item-execution/SKILL.md
   bin/aee
   CLAUDE.md
+  platform/agents/exec.sh
   platform/cli.sh
   platform/context/scripts/init.sh
   platform/context/templates/manifest.json

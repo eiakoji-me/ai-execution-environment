@@ -48,6 +48,7 @@ Commands:
     compact     Trigger context compaction
     snapshot    Manage context snapshots (create, list, restore, switch)
 
+  exec          Execute a single-turn prompt against a work item or context file
   setup         Run environment setup and configuration (plan, apply)
   doctor        Run diagnostic health checks on host tools and configuration
   validate      Run platform portability, shellcheck, and manifest validations
@@ -132,6 +133,7 @@ _aee() {
     'work-items:Inspect and scaffold work items'
     'identity:Manage isolated identity profiles'
     'context:Manage session context, memory partitions, and snapshots'
+    'exec:Execute a single-turn prompt against a work item or context file'
     'setup:Run environment setup and configuration'
     'doctor:Run diagnostic health checks on host tools'
     'validate:Run platform portability and manifest validations'
@@ -270,7 +272,7 @@ _aee_completions() {
     cword="$COMP_CWORD"
   fi
 
-  local commands="runtime slots worktrees repos work-items identity context setup doctor validate version completion help"
+  local commands="runtime slots worktrees repos work-items identity context exec setup doctor validate version completion help"
 
   if [[ "$cword" -eq 1 ]]; then
     # shellcheck disable=SC2207
@@ -447,6 +449,9 @@ case "$action" in
         exit 2
         ;;
     esac
+    ;;
+  exec)
+    exec "$ROOT/platform/agents/exec.sh" "$@"
     ;;
   setup)
     exec "$ROOT/platform/install/setup.sh" "$@"
