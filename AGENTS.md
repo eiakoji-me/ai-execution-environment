@@ -38,6 +38,11 @@ application monorepo.
   `history.log` as its durable handoff rather than conversation memory.
 - Runtime branch creation must resolve an explicit upstream start point and
   must not depend on the canonical checkout's current `HEAD`.
+- In multi-machine and multi-account workflows, agents propose work-item changes
+  via pull requests targeting `dev` (or the configured integration branch).
+  Worktree branches default to branching from `origin/dev` when present, falling
+  back to the remote default branch. Direct pushes to `dev` or `main` are
+  restricted to verified release promotions.
 - Run `./architecture/sync-scaffold.sh` after changing portable structure or
   behavior.
 - Run `./platform/validate.sh` after platform changes.
