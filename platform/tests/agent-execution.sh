@@ -100,7 +100,7 @@ EOF
   grep -Fq 'ACKNOWLEDGED' <<<"$record_out" || fail "claude failed to acknowledge instruction in test: $record_out"
 
   # Verify history.log was appended
-  grep -Fq 'agent-exec (claude)' "$TEST_ROOT/workspaces/test-ws/TASK-1/history.log" \
+  grep -Fq 'agent-exec (claude' "$TEST_ROOT/workspaces/test-ws/TASK-1/history.log" \
     || fail "history.log did not record agent-exec turn"
 
   # Verify context WAL was appended

@@ -15,6 +15,32 @@ AEE="$ROOT/bin/aee"
 [[ -x "$RESOLVE" ]] || fail "resolve.sh is not executable"
 [[ -x "$AEE" ]] || fail "bin/aee is not executable"
 
+# Resolve against fixture manifests so the test does not depend on this instance's projects.
+fixture_dir="$(mktemp -d)"
+trap 'rm -rf "$fixture_dir"' EXIT
+github_manifest="$fixture_dir/github-projects.json"
+jq -n '{
+  version: 1,
+  projects: [{
+    id: "wiki-eiakoji-me",
+    workspace: "eiakoji-me-wiki-eiakoji-me",
+    repository: {
+      provider: "github",
+      owner: "eiakoji-me",
+      name: "wiki-eiakoji-me",
+      url: "https://github.com/eiakoji-me/wiki-eiakoji-me",
+      path: "repos/wiki-eiakoji-me",
+      identity: "eiakoji-me"
+    },
+    issues: {
+      provider: "github",
+      owner: "eiakoji-me",
+      repository: "wiki-eiakoji-me"
+    }
+  }]
+}' >"$github_manifest"
+export PROJECTS_MANIFEST="$github_manifest"
+
 # 1. Test help flag via bin/aee
 help_out="$("$AEE" ingest --help)"
 grep -Fq 'aee ingest <issue-url-or-ref>' <<<"$help_out" || fail "missing usage in aee ingest --help"
@@ -61,8 +87,7 @@ cli_res="$("$AEE" work-items resolve wiki.eiakoji.me/issues/42 --json)"
 [[ "$(jq -r '.issueRef' <<<"$cli_res")" == "42" ]] || fail "unexpected issueRef from cli resolve: $cli_res"
 
 # 9. Test Jira URL and issue key resolution with isolated manifest fixture
-tmp_manifest="$(mktemp)"
-trap 'rm -f "$tmp_manifest"' EXIT
+tmp_manifest="$fixture_dir/jira-projects.json"
 jq -n '{
   version: 1,
   projects: [{
