@@ -22,11 +22,22 @@ case "$operation" in
     }
     git -C "$repository" fetch --prune origin "$default_branch"
     git -C "$repository" remote set-head origin "$default_branch"
-    printf '%s\n' "$default_branch"
+
+    has_dev="$(git -C "$repository" ls-remote --heads origin dev 2>/dev/null | awk '{print $2}')"
+    if [[ -n "$has_dev" ]]; then
+      git -C "$repository" fetch --prune origin "refs/heads/dev:refs/remotes/origin/dev"
+      printf 'dev\n'
+    else
+      printf '%s\n' "$default_branch"
+    fi
     ;;
   default-branch)
     [[ "$#" -eq 2 ]] || { usage; exit 2; }
-    git -C "$2" symbolic-ref --short refs/remotes/origin/HEAD | sed 's#^origin/##'
+    if git -C "$2" rev-parse --verify --quiet refs/remotes/origin/dev >/dev/null; then
+      printf 'dev\n'
+    else
+      git -C "$2" symbolic-ref --short refs/remotes/origin/HEAD | sed 's#^origin/##'
+    fi
     ;;
   *)
     usage
