@@ -115,6 +115,10 @@ eval "$(aee completion bash)"
 | **`work-items`** | `list`, `scaffold`, `status` | Scaffold work items from issue providers, inspect status, and manage lifecycles. |
 | **`identity`** | `list`, `init`, `check`, `env`, `run` | Initialize credential profiles, verify CLI authentication, and wrap provider executions. |
 | **`context`** | `init`, `hydrate`, `append`, `compact`, `snapshot` | Operate the LSM context memory model, hydrate prompt windows, and switch topic snapshots. |
+| **`orchestrate`** | — (alias: `loop`) | Autonomously advance work items through the lifecycle state machine with dynamic tier routing. |
+| **`route`** | — (alias: `router`) | Query or evaluate stage-to-model routing decisions and deterministic bypass paths. |
+| **`fleet`** | `dispatch`, `status`, `queue` | Multi-agent concurrency, pool worker backgrounding, and queue management. |
+| **`job`** | `submit`, `run`, `list`, `briefing` | Manage background Long-Running Operations (LROs) and executive morning briefings. |
 | **`setup`** | `plan`, `apply` | Preview and materialize host setup configurations. |
 | **`doctor`** | — | Run comprehensive health and dependency diagnostic checks across host tools. |
 | **`validate`** | — | Verify platform integrity, shellcheck scripts, and validate manifests. |
@@ -202,6 +206,9 @@ This ensures the canonical checkout under `repos/my-project`, branches `feat/42-
 Advance the work item through the agent pipeline:
 
 ```bash
+# Autonomous Orchestrator Loop (CLI Gateway & Stage Routing)
+aee orchestrate personal-my-project FEAT-42
+
 # Antigravity / agy
 agy "Resume work on TASK-42 using the ticket coordinator"
 

@@ -158,7 +158,7 @@ if [[ -z "$engine" ]]; then
   fi
 fi
 
-temp_context="$(mktemp /tmp/aee-turn-XXXXXX.md)"
+temp_context="$(mktemp /tmp/aee-turn-XXXXXX)"
 cleanup() {
   rm -f "$temp_context"
 }
@@ -271,7 +271,7 @@ if [[ "$record_turn" -eq 1 && -n "$workspace" && -n "$work_item" ]]; then
   printf '[%s] agent-exec (%s%s [tier:%s]): %s\n' \
     "$timestamp" "$engine" "${resolved_model:+:$resolved_model}" "$tier" "$instruction" >> "$item_dir/history.log"
   if [[ -f "$item_dir/meta.json" ]]; then
-    tmp_meta="$(mktemp /tmp/aee-meta-XXXXXX.json)"
+    tmp_meta="$(mktemp /tmp/aee-meta-XXXXXX)"
     jq --arg eng "$engine" --arg mod "${resolved_model:-}" --arg tr "$tier" --arg ts "$timestamp" \
       '.runtime.lastExecution = {engine: $eng, model: $mod, tier: $tr, timestamp: $ts}' \
       "$item_dir/meta.json" > "$tmp_meta" && mv "$tmp_meta" "$item_dir/meta.json"
