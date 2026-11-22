@@ -247,7 +247,7 @@ set_runtime_pool_size() {
   done < <(find "$RUNTIME_ROOT/workspaces" -mindepth 3 -maxdepth 3 -name meta.json -type f -print 2>/dev/null)
 
   local env_file="$RUNTIME_ROOT/.env"
-  local temporary="${env_file}.tmp"
+  local temporary="${env_file}.tmp.$$"
   if [[ ! -f "$env_file" && -f "$RUNTIME_ROOT/platform/install/templates/.env.example" ]]; then
     cp "$RUNTIME_ROOT/platform/install/templates/.env.example" "$env_file"
   fi
