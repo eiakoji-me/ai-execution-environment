@@ -49,6 +49,8 @@ Commands:
     snapshot    Manage context snapshots (create, list, restore, switch)
 
   exec          Execute a single-turn prompt against a work item or context file
+  orchestrate   Autonomously advance work items through the lifecycle state machine (alias: loop)
+  route         Query or evaluate stage-to-model routing decisions (alias: router)
   fleet         Manage multi-agent fleet dispatch, queues, and status
     dispatch    Dispatch a goal to a slot or queue if pool is saturated
     status      Show active slots, background fleet workers, and queued tasks
@@ -148,6 +150,9 @@ _aee() {
     'identity:Manage isolated identity profiles'
     'context:Manage session context, memory partitions, and snapshots'
     'exec:Execute a single-turn prompt against a work item or context file'
+    'orchestrate:Autonomously advance work items through the lifecycle state machine'
+    'loop:Autonomous stage execution loop (alias for orchestrate)'
+    'route:Query or evaluate stage-to-model routing decisions'
     'fleet:Manage multi-agent fleet dispatch, queues, and status'
     'job:Manage background Long-Running Operations (LROs) and scheduled tasks'
     'morning:Display the executive morning briefing digest'
@@ -310,7 +315,7 @@ _aee_completions() {
     cword="$COMP_CWORD"
   fi
 
-  local commands="runtime slots worktrees repos work-items identity context exec fleet job morning ingest setup doctor validate version completion help"
+  local commands="runtime slots worktrees repos work-items identity context exec orchestrate loop route fleet job morning ingest setup doctor validate version completion help"
 
   if [[ "$cword" -eq 1 ]]; then
     # shellcheck disable=SC2207
@@ -509,6 +514,12 @@ case "$action" in
     ;;
   exec)
     exec "$ROOT/platform/agents/exec.sh" "$@"
+    ;;
+  orchestrate|loop)
+    exec "$ROOT/platform/orchestrator/loop.sh" "$@"
+    ;;
+  route|router)
+    exec "$ROOT/platform/orchestrator/router.sh" "$@"
     ;;
   fleet)
     subcmd="${1:-status}"

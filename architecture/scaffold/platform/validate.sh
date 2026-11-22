@@ -43,6 +43,8 @@ required_paths=(
   platform/interfaces/claude/generate-agents.sh
   platform/interfaces/claude/hooks/guard-outbound.sh
   platform/interfaces/claude/hooks/restrict-writes.sh
+  platform/orchestrator/loop.sh
+  platform/orchestrator/router.sh
   platform/repositories/providers/github.sh
   platform/runtime/.devcontainer/devcontainer.json
   platform/runtime/runtime.sh
